@@ -15,24 +15,15 @@
 
 (() => {
     'use strict';
-    const aElementList = document.querySelectorAll('a');
-    if (aElementList) {
-        const kuttAElementList = [...aElementList].filter(aElement => aElement.textContent.startsWith('https://kutt.appinn.net/'));
-        if (kuttAElementList) {
-            kuttAElementList.forEach(kuttAElement => {
-                const href = kuttAElement.href;
-                console.log('href', href);
-                GM_xmlhttpRequest({
-                    method: 'HEAD',
-                    url: href,
-                    fetch: true,
-                    onerror: (error) => {
-                        const realUrl = error.error.split('"')[1];
-                        kuttAElement.textContent = realUrl;
-                        kuttAElement.href = realUrl;
-                    },
-                });
-            });
-        }
-    }
+    [...document.querySelectorAll('a')]
+        .filter(aElement => aElement.textContent.startsWith('https://kutt.appinn.net/'))
+        .forEach(kuttAElement => GM_xmlhttpRequest({
+            method: 'HEAD',
+            url: kuttAElement.href,
+            onerror: (error) => {
+                const realUrl = error.error.split('"')[1];
+                kuttAElement.textContent = realUrl;
+                kuttAElement.href = realUrl;
+            },
+        }));
 })();
