@@ -2,6 +2,10 @@
 
 将小众软件的所有 `https://kutt.appinn.net/*` 链接还原成原始 URL
 
+## 安装地址
+
+[https://greasyfork.org/zh-CN/scripts/442871-kutt-appinn-net-demon-mirror](https://greasyfork.org/zh-CN/scripts/442871-kutt-appinn-net-demon-mirror)
+
 ## 开源仓库
 
 [github.com/jerryshell/kutt-appinn-net-demon-mirror](https://github.com/jerryshell/kutt-appinn-net-demon-mirror)
