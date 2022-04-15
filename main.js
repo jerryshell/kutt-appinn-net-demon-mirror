@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         kutt.appinn.net Demon Mirror
 // @namespace    jerryshell
-// @version      0.1
+// @version      0.2
 // @description  小众软件短链还原
 // @author       github.com/jerryshell
 // @match        *://www.appinn.com/*
@@ -20,10 +20,23 @@
         .forEach(kuttAElement => GM_xmlhttpRequest({
             method: 'HEAD',
             url: kuttAElement.href,
+            onload: (response) => {
+                if (response.status === 200) {
+                    const realUrl = response.finalUrl;
+                    if (realUrl) {
+                        kuttAElement.textContent = realUrl;
+                        kuttAElement.href = realUrl;
+                    }
+                } else {
+                    console.error(response);
+                }
+            },
             onerror: (error) => {
                 const realUrl = error.error.split('"')[1];
-                kuttAElement.textContent = realUrl;
-                kuttAElement.href = realUrl;
+                if (realUrl) {
+                    kuttAElement.textContent = realUrl;
+                    kuttAElement.href = realUrl;
+                }
             },
         }));
 })();
