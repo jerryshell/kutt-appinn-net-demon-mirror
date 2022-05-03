@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         kutt.appinn.net Demon Mirror
 // @namespace    jerryshell
-// @version      0.3
+// @version      0.4
 // @description  小众软件短链还原
 // @author       github.com/jerryshell
 // @match        *://www.appinn.com/*
@@ -15,8 +15,7 @@
 
 (() => {
     'use strict';
-    [...document.querySelectorAll('a')]
-        .filter(aElement => aElement.href.startsWith('https://kutt.appinn.net/'))
+    [...document.querySelectorAll('a[href^="https://kutt.appinn.net/"]')]
         .forEach(kuttAElement => GM_xmlhttpRequest({
             method: 'HEAD',
             url: kuttAElement.href,

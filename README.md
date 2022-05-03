@@ -17,3 +17,4 @@
 ## 感谢
 
 * [github.com/nonomal](https://github.com/jerryshell/kutt-appinn-net-demon-mirror/issues/1)
+* [greasyfork.org/Crystal-RainSlide](https://greasyfork.org/zh-CN/scripts/442871-kutt-appinn-net-demon-mirror/discussions/131767)
